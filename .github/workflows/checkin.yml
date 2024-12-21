@@ -1,0 +1,21 @@
+name: GLaDOS Checkin
+
+on:
+  schedule:
+    - cron: '15 1 * * *' # 每天 UTC 1:15 运行 (北京时间 9:15)
+  workflow_dispatch:
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkin
+        uses: actions/http-request@v2
+        with:
+          url: 'https://glados.space/api/user/checkin'
+          method: 'POST'
+          httpMethod: 'POST'
+          body: '{ "token": "glados.one" }'
+          customHeaders: '{"Authorization": "34275512987024078450447812440453-982-1512", "Content-Type": "application/json"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
