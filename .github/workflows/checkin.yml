@@ -13,9 +13,15 @@ jobs:
         uses: actions/http-request@v2
         with:
           url: 'https://glados.space/api/user/checkin'
-          method: 'POST'
           httpMethod: 'POST'
-          body: '{ "token": "glados.one" }'
-          customHeaders: '{"Authorization": "34275512987024078450447812440453-982-1512", "Content-Type": "application/json"}'
+          body: |
+            {
+              "token": "glados.one"
+            }
+          customHeaders: |
+            {
+              "Authorization": "34275512987024078450447812440453-982-1512",
+              "Content-Type": "application/json"
+            }
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 保留以备将来使用
