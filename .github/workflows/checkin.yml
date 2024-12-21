@@ -18,8 +18,10 @@ jobs:
             {
               "token": "glados.one"
             }
-          headers:
-            authorization: "34275512987024078450447812440453-982-1512"
-            content-type: application/json
-        env: # env 应该在这里，与 with 同级
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 保留以备将来使用
+          headers: | # headers 需要使用字符串格式
+            {
+              "Authorization": "34275512987024078450447812440453-982-1512",
+              "Content-Type": "application/json"
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
