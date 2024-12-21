@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkin
-        uses: octokit/request-action@v2 # 正确的 uses 路径
+        uses: octokit/request-action@v2
         with:
           route: POST /api/user/checkin
           baseUrl: 'https://glados.space'
@@ -21,5 +21,5 @@ jobs:
           headers:
             authorization: "34275512987024078450447812440453-982-1512"
             content-type: application/json
-        env:
+        env: # env 应该在这里，与 with 同级
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 保留以备将来使用
